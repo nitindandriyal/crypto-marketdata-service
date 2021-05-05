@@ -1,0 +1,34 @@
+apply plugin: 'java'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+group 'crypto.com.task'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.aeron:aeron-all:1.32.0'
+    implementation 'org.agrona:agrona:1.10.0'
+    implementation 'junit:junit:4.12'
+    testCompile 'junit:junit:4.12'
+}
+
+task srcZip(type: Zip) {
+    from projectDir
+    include 'src/**/*'
+    include 'build.gradle'
+    include 'README.md'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'crypto.com.task.marketdata.Main'
+        )
+    }
+}
+
