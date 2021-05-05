@@ -70,6 +70,7 @@ public class Main {
             while (running.get()) {
                 for (int i = 0; i < stocks.length; i++) {
                     int timeToWait = ThreadLocalRandom.current().nextInt(500, 2000);
+                    System.out.println("Next price update in " + timeToWait + "ms");
                     TimeUnit.MILLISECONDS.sleep(timeToWait);
                     double nextPrice = getNextPrice(i, timeToWait / 1000.0);
                     buffer.putBytes(0, stocks[i]);
