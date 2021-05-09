@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Main {
     private static final int STREAM_ID = 88;
-    private static final String CHANNEL = "aeron:udp?endpoint=localhost:20121";
+    private static final String CHANNEL = "aeron:udp?endpoint=localhost:8888";
     private static final long LINGER_TIMEOUT_MS = 0;
     private static final boolean EMBEDDED_MEDIA_DRIVER = true;
 
